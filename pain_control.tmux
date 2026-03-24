@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. "$CURRENT_DIR/sensible.bash"
+
 default_pane_resize="5"
 
 # tmux show-option "q" (quiet) flag does not set return value to 1, even though
@@ -57,6 +61,9 @@ main() {
 	window_move_bindings
 	pane_resizing_bindings
 	pane_split_bindings
-	improve_new_window_binding
+
+	if key_binding_not_set "c"; then
+		improve_new_window_binding
+	fi
 }
 main
