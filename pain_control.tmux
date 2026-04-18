@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}")"  && pwd)"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 . "$CURRENT_DIR/sensible.bash"
 
@@ -44,20 +44,39 @@ pane_navigation_bindings() {
 			tmux bind-key h select-pane -L
 		fi
 
-	if key_binding_not_set "k"; then
-		tmux bind-key k select-pane -U
+		if key_binding_not_set "C-h"; then
+			tmux bind-key C-h select-pane -L
+		fi
 	fi
 
-	if key_binding_not_set "C-k"; then
-		tmux bind-key C-k select-pane -U
+	if ! is_binding_func_set "select-pane -D"; then
+		if key_binding_not_set "j"; then
+			tmux bind-key j select-pane -D
+		fi
+
+		if key_binding_not_set "C-j"; then
+			tmux bind-key C-j select-pane -D
+		fi
 	fi
 
-	if key_binding_not_set "l"; then
-		tmux bind-key l select-pane -R
+	if ! is_binding_func_set "select-pane -U"; then
+		if key_binding_not_set "k"; then
+			tmux bind-key k select-pane -U
+		fi
+
+		if key_binding_not_set "C-k"; then
+			tmux bind-key C-k select-pane -U
+		fi
 	fi
 
-	if key_binding_not_set "C-l"; then
-		tmux bind-key C-l select-pane -R
+	if ! is_binding_func_set "select-pane -R"; then
+		if key_binding_not_set "l"; then
+			tmux bind-key l select-pane -R
+		fi
+
+		if key_binding_not_set "C-l"; then
+			tmux bind-key C-l select-pane -R
+		fi
 	fi
 }
 
@@ -102,8 +121,6 @@ pane_split_bindings() {
 
 	tmux bind-key "-" split-window -v -c "#{pane_current_path}"
 
-	if key_binding_not_set '"'; then
-		tmux bind-key '"' split-window -v -c "#{pane_current_path}"
 	if key_binding_not_set "_"; then
 		tmux bind-key "_" split-window -fv -c "#{pane_current_path}"
 	fi
