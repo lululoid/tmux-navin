@@ -132,7 +132,7 @@ pane_split_bindings() {
 
 improve_new_window_binding() {
 	if key_binding_not_set "c"; then
-		tmux bind-key "c" new-window -a
+		tmux bind-key "c" new-window
 	fi
 
 	if key_binding_not_set "v"; then
