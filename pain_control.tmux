@@ -96,13 +96,11 @@ pane_split_bindings() {
 		tmux bind-key "|" split-window -h -c "#{pane_current_path}"
 	fi
 
-	if key_binding_not_set "%"; then
-		tmux bind-key "%" split-window -h -c "#{pane_current_path}"
+	if key_binding_not_set "X"; then
+		tmux bind-key X delete-buffer
 	fi
 
-	if key_binding_not_set "-"; then
-		tmux bind-key "-" split-window -v -c "#{pane_current_path}"
-	fi
+	tmux bind-key "-" split-window -v -c "#{pane_current_path}"
 
 	if key_binding_not_set '"'; then
 		tmux bind-key '"' split-window -v -c "#{pane_current_path}"
