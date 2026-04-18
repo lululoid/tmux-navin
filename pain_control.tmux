@@ -135,6 +135,10 @@ improve_new_window_binding() {
 		tmux bind-key "c" new-window
 	fi
 
+	if key_binding_not_set "N"; then
+		tmux bind-key "N" new-window -b -t 0
+	fi
+
 	if key_binding_not_set "v"; then
 		tmux bind-key "v" new-window -a -c "#{pane_current_path}"
 	fi
