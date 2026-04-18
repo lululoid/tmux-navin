@@ -81,11 +81,11 @@ pane_navigation_bindings() {
 }
 
 window_move_bindings() {
-	if key_binding_not_set "<"; then
+	if key_binding_not_set "\<"; then
 		tmux bind-key -r "<" swap-window -d -t -1
 	fi
 
-	if key_binding_not_set ">"; then
+	if key_binding_not_set "\>"; then
 		tmux bind-key -r ">" swap-window -d -t +1
 	fi
 }
