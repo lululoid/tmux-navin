@@ -19,22 +19,30 @@ get_tmux_option() {
 	fi
 }
 
+is_binding_func_set() {
+	local function bind_key mode
+	function="+$1"
+
+	if [[ -n "$2" ]]; then
+		mode="$2[[:space:]]"
+	else
+		mode="prefix[[:space:]]"
+	fi
+
+	if [[ -n "$3" ]]; then
+		bind_key="+$3[[:space:]]"
+	else
+		bind_key=".*"
+	fi
+
+	tmux list-keys | grep -E "^bind-key.*${mode}${bind_key}${function}$"
+}
+
 pane_navigation_bindings() {
-	if key_binding_not_set "h"; then
-		tmux bind-key h select-pane -L
-	fi
-
-	if key_binding_not_set "C-h"; then
-		tmux bind-key C-h select-pane -L
-	fi
-
-	if key_binding_not_set "j"; then
-		tmux bind-key j select-pane -D
-	fi
-
-	if key_binding_not_set "C-j"; then
-		tmux bind-key C-j select-pane -D
-	fi
+	if ! is_binding_func_set "select-pane -L"; then
+		if key_binding_not_set "h"; then
+			tmux bind-key h select-pane -L
+		fi
 
 	if key_binding_not_set "k"; then
 		tmux bind-key k select-pane -U
