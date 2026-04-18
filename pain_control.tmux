@@ -136,7 +136,7 @@ improve_new_window_binding() {
 	fi
 
 	if key_binding_not_set "N"; then
-		tmux bind-key "N" new-window -b -t 0
+		tmux bind-key "N" new-window -b -t "$(tmux show-options -gv pane-base-index)"
 	fi
 
 	if key_binding_not_set "v"; then
