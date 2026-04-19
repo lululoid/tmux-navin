@@ -10,13 +10,21 @@ copied them here.
 
 Tested and working on Linux, OSX and Cygwin.
 
-### Bindings
+## Bindings
 
 Notice most of the bindings emulate vim cursor movements.
 
 <img align="right" src="/screenshots/pane_navigation.gif" alt="pane navigation"/>
 
-**Navigation**
+### **Navigation**
+
+**Vim mode (Optional)**
+
+Can be enabled by adding this to you config:
+
+```
+set -g @tpc_vim_pane_nav "yes"
+```
 
 - `prefix + h` and `prefix + C-h`<br/>
   select pane on the left
@@ -71,6 +79,9 @@ The amount of cells to resize can be configured with `@pane_resize` option. See
 
 Newly created pane always has the same path as the original pane.
 
+>> [!NOTE]
+> Default `prefix + -` moved to `prefix + X`
+
 <br/><br/><br/><br/><br/>
 
 **Swapping windows**
@@ -78,43 +89,59 @@ Newly created pane always has the same path as the original pane.
 - `prefix + <` - moves current window one position to the left
 - `prefix + >` - moves current window one position to the right
 
-### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
+**Adding window**
+
+- `prefix + c` - create new window in front of your current window with your current session path
+- `prefix + v` - create and append new window in front of your current window with your current path
+- `prefix + N` - create new window at default `pane-base-index which` is `0` by tmux default
+
+## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @plugin 'tmux-plugins/tmux-pain-control'
+```
+set -g @plugin 'lululoid/tmux-pain-control'
+```
 
 Hit `prefix + I` to fetch the plugin and source it.
 
 You should now have all `pain-control` bindings defined.
 
-### Manual Installation
+## Manual Installation
 
 Clone the repo:
 
-    $ git clone https://github.com/tmux-plugins/tmux-pain-control ~/clone/path
+```
+git clone https://github.com/tmux-plugins/tmux-pain-control ~/clone/path
+```
 
 Add this line to the bottom of `.tmux.conf`:
 
-    run-shell ~/clone/path/pain_control.tmux
+```
+run-shell ~/clone/path/pain_control.tmux
+```
 
 Reload TMUX environment:
 
-    # type this in terminal
-    $ tmux source-file ~/.tmux.conf
+```
+# type this in terminal
+$ tmux source-file ~/.tmux.conf
+```
 
 You should now have all `pain-control` bindings defined.
 
-### Configuration
+## Configuration
 
 You can set `@pane_resize` Tmux option to choose number of resize cells for the
 resize bindings. "5" is the default.
 
 Example:
 
-    set-option -g @pane_resize "10"
+```
+set-option -g @pane_resize "10"
+```
 
-### Other plugins
+## Other plugins
 
 You might also find these useful:
 
@@ -123,5 +150,6 @@ You might also find these useful:
 - [logging](https://github.com/tmux-plugins/tmux-logging) - easy logging and
   screen capturing
 
-### License
+## License
+
 [MIT](LICENSE.md)
