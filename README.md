@@ -37,10 +37,10 @@ set -g @tpc_vim_pane_nav "yes"
 
 <br/>
 
-**Note**: This overrides tmux's default binding for toggling between last
+> [!NOTE]
+> This overrides tmux's default binding for toggling between last
 active windows, `prefix + l`.
-[tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) gives you
-a better binding for that, `prefix + a` (if your prefix is `C-a`).
+> <br>[tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) gives you a better binding for that, `prefix + a` (if your prefix is `C-a`).
 
 <br/><br/>
 
@@ -79,7 +79,7 @@ The amount of cells to resize can be configured with `@pane_resize` option. See
 
 Newly created pane always has the same path as the original pane.
 
->> [!NOTE]
+> [!NOTE]
 > Default `prefix + -` moved to `prefix + X`
 
 <br/><br/><br/><br/><br/>
@@ -145,6 +145,7 @@ set-option -g @pane_resize "10"
 
 You might also find these useful:
 
+- some unimplemented ideas - [ideas.md](ideas.md)
 - [sessionist](https://github.com/tmux-plugins/tmux-sessionist) - lightweight
   tmux utils for switching and creating sessions
 - [logging](https://github.com/tmux-plugins/tmux-logging) - easy logging and
