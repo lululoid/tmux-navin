@@ -23,7 +23,7 @@ Notice most of the bindings emulate vim cursor movements.
 Can be enabled by adding this to you config:
 
 ```
-set -g @tpc_vim_pane_nav "yes"
+set -g @tpc_vim_mode_nav "yes"
 ```
 
 - `prefix + h` and `prefix + C-h`<br/>
@@ -112,7 +112,7 @@ You should now have all `pain-control` bindings defined.
 Clone the repo:
 
 ```
-git clone https://github.com/tmux-plugins/tmux-pain-control ~/clone/path
+git clone https://github.com/lululoid/tmux-pain-control ~/clone/path
 ```
 
 Add this line to the bottom of `.tmux.conf`:
