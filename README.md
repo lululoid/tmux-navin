@@ -158,7 +158,11 @@ resize bindings. "5" is the default.
 Example:
 
 ```
-set-option -g @tpc_pane_resize "10"
+set -g @tpc_pane_resize "5"
+set -g @tpc_nav "yes"
+set -g @tpc_renumber_windows "on"
+set -g @tpc_arrow_nav "yes"
+set -g @tpc_repeat_time "1000"
 ```
 
 ## Other plugins
