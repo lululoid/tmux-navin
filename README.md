@@ -18,7 +18,11 @@ Notice most of the bindings emulate vim cursor movements.
 
 ### **Navigation**
 
-The default way is simply to use the `Alt + arrow` to move around the panes. Configurable via `@tpc_nav` option between `yes` or `no`.
+The default way is simply to use the `Alt + arrow` to move around the panes. Can be disabled with:
+
+```
+set -g @tpc_nav "off"
+```
 
 #### **Vim mode (Optional)**
 
@@ -48,7 +52,7 @@ active windows, `prefix + l`.
 
 <img align="right" src="/screenshots/pane_resizing.gif" alt="pane resizing"/>
 
-**Resizing panes**
+#### **Resizing panes**
 
 - `prefix + shift + h`<br/>
   resize current pane 5 cells to the left
@@ -68,7 +72,7 @@ The amount of cells to resize can be configured with `@tpc_pane_resize` option. 
 
 <img align="right" src="/screenshots/pane_splitting.gif" alt="pane splitting"/>
 
-**Splitting panes**
+#### **Splitting panes**
 
 - `prefix + |`<br/>
   split the current pane into two, left and right.
@@ -86,18 +90,18 @@ Newly created pane always has the same path as the original pane.
 
 <br/><br/><br/><br/><br/>
 
-**Swapping windows**
+#### **Swapping windows**
 
 - `prefix + <` - moves current window one position to the left
 - `prefix + >` - moves current window one position to the right
 
-**Adding window**
+#### **Adding window**
 
 - `prefix + c` - create new window in front of your current window with your current session path
 - `prefix + v` - create and append new window in front of your current window with your current path
 - `prefix + N` - create new window at default `base-index` which is `0` by tmux's default
 
-**Navigating windows**
+#### **Navigating windows**
 
 - `prefix + Alt + ←` - previous window
 - `prefix + Alt + →` - next window
@@ -106,6 +110,23 @@ Newly created pane always has the same path as the original pane.
 
 > [!NOTE]
 > This removes default holding down `alt + arrow` for resizing panes faster because holding `ctrl + arrow` is doing the same thing. This removes redundancy without losing functionality.
+
+## UX
+
+### **Window Renumbering**
+
+By default, this plugin enables `renumber-windows` to prevent gaps in window indexes.
+You can disable this by setting:
+```
+set -g @tpc_renumber_windows "off"
+```
+
+### **Repeat Time**
+
+Change default repeat time from 500 ms to 1000 ms for better responsiveness. You can make it shorter or longer by setting:
+```
+set -g @tpc_repeat_time "1000"
+```
 
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
@@ -143,14 +164,6 @@ $ tmux source-file ~/.tmux.conf
 You should now have all `pain-control` bindings defined.
 
 ## Configuration
-
-### **Window Renumbering**
-
-By default, this plugin enables `renumber-windows` to prevent gaps in window indexes. 
-You can disable this by setting:
-```
-set -g @tpc_renumber_windows "off"
-```
 
 You can set `@tpc_pane_resize` Tmux option to choose number of resize cells for the
 resize bindings. "5" is the default.
