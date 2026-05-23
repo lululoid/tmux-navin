@@ -4,8 +4,6 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 . "$CURRENT_DIR/sensible.bash"
 
-default_pane_resize="5"
-
 # tmux show-option "q" (quiet) flag does not set return value to 1, even though
 # the option does not exist. This function patches that.
 get_tmux_option() {
@@ -26,7 +24,7 @@ window_move_bindings() {
 }
 
 pane_resizing_bindings() {
-	local pane_resize=$(get_tmux_option "@pane_resize" "$default_pane_resize")
+	local pane_resize=$(tmux show-option -gqv pane-resize)
 
 	if key_binding_not_set "H"; then
 		tmux bind-key -r H resize-pane -L "$pane_resize"

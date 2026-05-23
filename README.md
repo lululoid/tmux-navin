@@ -8,7 +8,7 @@ This plugin hopefully makes them more available and "more standard".
 Thanks to the Tmux community for "inventing" these bindings. I've merely just
 copied them here.
 
-Tested and working on Linux, OSX and Cygwin.
+Tested and working on Linux, ~~OSX~~ and ~~Cygwin~~.
 
 ## Bindings
 
@@ -18,7 +18,9 @@ Notice most of the bindings emulate vim cursor movements.
 
 ### **Navigation**
 
-**Vim mode (Optional)**
+The default way is simply to use the `Alt + arrow` to move around the panes.
+
+#### **Vim mode (Optional)**
 
 Can be enabled by adding this to you config:
 
@@ -59,7 +61,7 @@ active windows, `prefix + l`.
 
 These mappings are `repeatable`.
 
-The amount of cells to resize can be configured with `@pane_resize` option. See
+The amount of cells to resize can be configured with `@tpc_pane_resize` option. See
 [configuration section](#configuration) for the details.
 
 <br/><br/>
@@ -80,7 +82,7 @@ The amount of cells to resize can be configured with `@pane_resize` option. See
 Newly created pane always has the same path as the original pane.
 
 > [!NOTE]
-> Default `prefix + -` moved to `prefix + X`
+> Default delete buffer (clipboard) binding: `prefix + -` moved to `prefix + X`
 
 <br/><br/><br/><br/><br/>
 
@@ -93,7 +95,7 @@ Newly created pane always has the same path as the original pane.
 
 - `prefix + c` - create new window in front of your current window with your current session path
 - `prefix + v` - create and append new window in front of your current window with your current path
-- `prefix + N` - create new window at default `pane-base-index which` is `0` by tmux default
+- `prefix + N` - create new window at default `base-index` which is `0` by tmux's default
 
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
@@ -132,13 +134,13 @@ You should now have all `pain-control` bindings defined.
 
 ## Configuration
 
-You can set `@pane_resize` Tmux option to choose number of resize cells for the
+You can set `@tpc_pane_resize` Tmux option to choose number of resize cells for the
 resize bindings. "5" is the default.
 
 Example:
 
 ```
-set-option -g @pane_resize "10"
+set-option -g @tpc_pane_resize "10"
 ```
 
 ## Other plugins
