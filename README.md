@@ -134,6 +134,14 @@ You should now have all `pain-control` bindings defined.
 
 ## Configuration
 
+### **Window Renumbering**
+
+By default, this plugin enables `renumber-windows` to prevent gaps in window indexes. 
+You can disable this by setting:
+```
+set -g @tpc_renumber_windows "off"
+```
+
 You can set `@tpc_pane_resize` Tmux option to choose number of resize cells for the
 resize bindings. "5" is the default.
 

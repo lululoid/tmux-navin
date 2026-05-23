@@ -24,7 +24,7 @@ window_move_bindings() {
 }
 
 pane_resizing_bindings() {
-	local pane_resize=$(tmux show-option -gqv pane-resize)
+	local pane_resize=$(tmux show-option -gqv @tpc_pane_resize)
 
 	if key_binding_not_set "H"; then
 		tmux bind-key -r H resize-pane -L "$pane_resize"
@@ -77,6 +77,11 @@ improve_new_window_binding() {
 	fi
 }
 
+renumber_windows_setting() {
+	local renumber=$(tmux show-option -gqv @tpc_renumber_windows)
+	tmux set-option -g renumber-windows "$renumber"
+}
+
 main() {
 	tmux source "${CURRENT_DIR}/pain_control_global.conf"
 	tmux source "${CURRENT_DIR}/pain_control.conf"
@@ -84,5 +89,6 @@ main() {
 	pane_resizing_bindings
 	pane_split_bindings
 	improve_new_window_binding
+	renumber_windows_setting
 }
 main
