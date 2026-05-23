@@ -18,7 +18,7 @@ Notice most of the bindings emulate vim cursor movements.
 
 ### **Navigation**
 
-The default way is simply to use the `Alt + arrow` to move around the panes.
+The default way is simply to use the `Alt + arrow` to move around the panes. Configurable via `@tpc_nav` option between `yes` or `no`.
 
 #### **Vim mode (Optional)**
 
