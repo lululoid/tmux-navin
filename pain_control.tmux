@@ -77,11 +77,6 @@ improve_new_window_binding() {
 	fi
 }
 
-renumber_windows_setting() {
-	local renumber=$(tmux show-option -gqv @tpc_renumber_windows)
-	tmux set-option -g renumber-windows "$renumber"
-}
-
 main() {
 	tmux source "${CURRENT_DIR}/pain_control_global.conf"
 	tmux source "${CURRENT_DIR}/pain_control.conf"
@@ -89,6 +84,5 @@ main() {
 	pane_resizing_bindings
 	pane_split_bindings
 	improve_new_window_binding
-	renumber_windows_setting
 }
 main
