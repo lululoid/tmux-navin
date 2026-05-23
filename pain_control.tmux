@@ -40,8 +40,8 @@ pane_split_bindings() {
 		tmux bind-key "|" split-window -h -c "#{pane_current_path}"
 	fi
 
-	if key_binding_not_set "X"; then
-		tmux bind-key X delete-buffer
+	if key_binding_not_set "Delete"; then
+		tmux bind-key Delete delete-buffer
 	fi
 
 	tmux bind-key "-" split-window -v -c "#{pane_current_path}"

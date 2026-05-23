@@ -86,7 +86,7 @@ The amount of cells to resize can be configured with `@tpc_pane_resize` option. 
 Newly created pane always has the same path as the original pane.
 
 > [!NOTE]
-> Default delete buffer (clipboard) binding: `prefix + -` moved to `prefix + X`
+> Default delete buffer (clipboard) binding: `prefix + -` moved to `prefix + Del`
 
 <br/><br/><br/><br/><br/>
 
