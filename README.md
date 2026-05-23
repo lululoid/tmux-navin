@@ -97,6 +97,16 @@ Newly created pane always has the same path as the original pane.
 - `prefix + v` - create and append new window in front of your current window with your current path
 - `prefix + N` - create new window at default `base-index` which is `0` by tmux's default
 
+**Navigating windows**
+
+- `prefix + Alt + ←` - previous window
+- `prefix + Alt + →` - next window
+- `prefix + Alt + Home` - first window
+- `prefix + Alt + End` - last window
+
+> [!NOTE]
+> This removes default holding down `alt + arrow` for resizing panes faster because holding `ctrl + arrow` is doing the same thing. This removes redundancy without losing functionality.
+
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:

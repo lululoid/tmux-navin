@@ -5,3 +5,4 @@
 - [x] Change prefix + c for create new window only
 - [x] Add default `Alt + arrow` as default navigation mode
 - [x] Cleaning up index order, fixing skipping indexes because of deleted window.
+- [x] Navigating windows with prefix + holding down alt + arrow.
