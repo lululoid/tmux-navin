@@ -78,10 +78,11 @@ improve_new_window_binding() {
 }
 
 main() {
+	tmux source "${CURRENT_DIR}/pain_control_global.conf"
+	tmux source "${CURRENT_DIR}/pain_control.conf"
 	window_move_bindings
 	pane_resizing_bindings
 	pane_split_bindings
 	improve_new_window_binding
-	tmux source "${CURRENT_DIR}/pain_control.conf"
 }
 main
