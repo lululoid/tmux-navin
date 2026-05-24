@@ -59,7 +59,7 @@ active windows, `prefix + l`.
 - `prefix + shift + l`<br/>
   resize 5 cells to the right
 
-These mappings are `repeatable`.
+These mappings are **repeatable**.
 
 The amount of cells to resize can be configured with `@tpc_pane_resize` option. See. Can be disabled by `@tpc_vim_pane_resizing "no"`.
 [configuration section](#configuration) for the details.
@@ -89,6 +89,8 @@ Newly created pane always has the same path as the original pane.
 - `prefix + <` - moves current window one position to the left
 - `prefix + >` - moves current window one position to the right
 
+This mappings are **repeatable**.
+
 #### **Adding window**
 
 - `prefix + c` - create new window in front of your current window with your current session path
@@ -102,10 +104,14 @@ Newly created pane always has the same path as the original pane.
 - `prefix + Alt + Home` - first window
 - `prefix + Alt + End` - last window
 
+This mappings are **repeatable**. You press `prefix` + hold down `alt` then press the binding.
+
 #### **Navigating sessions**
 
 - `prefix + Alt + ↑` - previous session
 - `prefix + Alt + ↓` - next session
+
+This mappings are **repeatable**.
 
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
