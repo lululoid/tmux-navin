@@ -1,5 +1,7 @@
 # Tmux Pain Control
 
+This plugin extending tmux pain control to make it more functional and more intuitive. This plugin doesn't replace much of original tmux bindings, make it act as more of an addition rather than replacement.
+
 Tmux plugin for controlling panes. Adds standard pane navigation bindings.
 
 So far, you had to google around and comb other people's dotfiles to find these.
@@ -113,6 +115,18 @@ This mappings are **repeatable**. You press `prefix` + hold down `alt` then pres
 
 This mappings are **repeatable**.
 
+### **Layout Management**
+
+These bindings allow you to quickly switch between tmux layouts using the `Alt` (Meta) key. This mapping is consistently match the symbols used, with just an addition of modifier key, keeping it intuitive. This mapping can be disabled by option `@tpc_layout_nav`.
+
+- `Alt + |` - even horizontal. Just like the symbol it basically says _**make everything looks vertical**_
+- `Alt + _` - main horizontal
+- `Alt + \` - main vertical
+- `Alt + -` - even vertical
+- `Alt + =` - tiled. In other words _**make everything equal**_
+- `Ctrl + Alt + _` - main horizontal mirrored
+- `Ctrl + Alt + \` - main vertical mirrored
+
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
@@ -162,6 +176,7 @@ set -g @tpc_renumber_windows "on"
 set -g @tpc_arrow_nav "yes"
 set -g @tpc_repeat_time "1000"
 set -g @tpc_vim_pane_resizing "no"
+set -g @tpc_layout_nav "yes"
 ```
 
 ## Other plugins

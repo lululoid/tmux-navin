@@ -7,3 +7,4 @@
 - [x] Cleaning up index order, fixing skipping indexes because of deleted window.
 - [x] Navigating windows with prefix + holding down alt + arrow.
 - [x] Navigating sessions with prefix + holding down alt + (up or down) arrow.
+- [x] Change default automatic resizing to use `-, _, \, |, =`, the rest is add `Ctrl` using the same available symbols.
