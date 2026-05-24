@@ -1,11 +1,8 @@
-# Tmux Pain Control
+# Navin (Navigation Intuitive)
 
-This plugin extending tmux pain control to make it more functional and more intuitive. This plugin doesn't replace much of original tmux bindings, make it act as more of an addition rather than replacement.
+**Navin** is a tmux plugin designed to make navigation and pane management completely intuitive. It extends standard tmux functionality with smart, easy-to-remember bindings, acting as a seamless addition to your workflow. Note that it replaced some of tmux's default bindings, but it still intuitive nevertheless.
 
-Tmux plugin for controlling panes. Adds standard pane navigation bindings.
-
-So far, you had to google around and comb other people's dotfiles to find these.
-This plugin hopefully makes them more available and "more standard".
+No more combing through dotfiles for standard layouts or navigation helpers. Navin makes these features "standard."
 
 Thanks to the Tmux community for "inventing" these bindings. I've merely just
 copied them here.
@@ -21,7 +18,7 @@ Notice most of the bindings emulate vim cursor movements.
 The default way is simply to use the `Alt + arrow` to move around the panes. Can be disabled with:
 
 ```
-set -g @tpc_nav "off"
+set -g @navin_nav "off"
 ```
 
 <img align="right" src="/screenshots/pane_navigation.gif" alt="pane navigation"/>
@@ -31,7 +28,7 @@ set -g @tpc_nav "off"
 Can be enabled by adding this to you config:
 
 ```
-set -g @tpc_vim_mode_nav "yes"
+set -g @navin_vim_mode_nav "yes"
 ```
 
 - `prefix + h` and `prefix + C-h`<br/>
@@ -63,7 +60,7 @@ active windows, `prefix + l`.
 
 These mappings are **repeatable**.
 
-The amount of cells to resize can be configured with `@tpc_pane_resize` option. See. Can be disabled by `@tpc_vim_pane_resizing "no"`.
+The amount of cells to resize can be configured with `@navin_pane_resize` option. See. Can be disabled by `@navin_vim_pane_resizing "no"`.
 [configuration section](#configuration) for the details.
 
 <br/><br/>
@@ -117,7 +114,7 @@ This mappings are **repeatable**.
 
 ### **Layout Management**
 
-These bindings allow you to quickly switch between tmux layouts using the `Alt` (Meta) key. This mapping is consistently match the symbols used, with just an addition of modifier key, keeping it intuitive. This mapping can be disabled by option `@tpc_layout_nav`.
+These bindings allow you to quickly switch between tmux layouts using the `Alt` (Meta) key. This mapping is consistently match the symbols used, with just an addition of modifier key, keeping it intuitive. This mapping can be disabled by option `@navin_layout_nav`.
 
 - `Alt + |` - even horizontal. Just like the symbol it basically says _**make everything looks vertical**_
 - `Alt + _` - main horizontal
@@ -164,19 +161,19 @@ You should now have all `pain-control` bindings defined.
 
 ## Configuration
 
-You can set `@tpc_pane_resize` Tmux option to choose number of resize cells for the
+You can set `@navin_pane_resize` Tmux option to choose number of resize cells for the
 resize bindings. "5" is the default.
 
 Example:
 
 ```
-set -g @tpc_pane_resize "5"
-set -g @tpc_nav "yes"
-set -g @tpc_renumber_windows "on"
-set -g @tpc_arrow_nav "yes"
-set -g @tpc_repeat_time "1000"
-set -g @tpc_vim_pane_resizing "no"
-set -g @tpc_layout_nav "yes"
+set -g @navin_pane_resize "5"
+set -g @navin_nav "yes"
+set -g @navin_renumber_windows "on"
+set -g @navin_arrow_nav "yes"
+set -g @navin_repeat_time "1000"
+set -g @navin_vim_pane_resizing "no"
+set -g @navin_layout_nav "yes"
 ```
 
 ## Other plugins
