@@ -14,8 +14,6 @@ Tested and working on Linux, ~~OSX~~ and ~~Cygwin~~.
 
 Notice most of the bindings emulate vim cursor movements.
 
-<img align="right" src="/screenshots/pane_navigation.gif" alt="pane navigation"/>
-
 ### **Navigation**
 
 The default way is simply to use the `Alt + arrow` to move around the panes. Can be disabled with:
@@ -23,6 +21,8 @@ The default way is simply to use the `Alt + arrow` to move around the panes. Can
 ```
 set -g @tpc_nav "off"
 ```
+
+<img align="right" src="/screenshots/pane_navigation.gif" alt="pane navigation"/>
 
 #### **Vim mode (Optional)**
 
@@ -41,14 +41,10 @@ set -g @tpc_vim_mode_nav "yes"
 - `prefix + l` and `prefix + C-l`<br/>
   select pane on the right
 
-<br/>
-
 > [!NOTE]
 > This overrides tmux's default binding for toggling between last
 active windows, `prefix + l`.
 > <br>[tmux-sensible](https://github.com/tmux-plugins/tmux-sensible) gives you a better binding for that, `prefix + a` (if your prefix is `C-a`).
-
-<br/><br/>
 
 <img align="right" src="/screenshots/pane_resizing.gif" alt="pane resizing"/>
 
@@ -65,7 +61,7 @@ active windows, `prefix + l`.
 
 These mappings are `repeatable`.
 
-The amount of cells to resize can be configured with `@tpc_pane_resize` option. See
+The amount of cells to resize can be configured with `@tpc_pane_resize` option. See. Can be disabled by `@tpc_vim_pane_resizing "no"`.
 [configuration section](#configuration) for the details.
 
 <br/><br/>
@@ -88,8 +84,6 @@ Newly created pane always has the same path as the original pane.
 > [!NOTE]
 > Default delete buffer (clipboard) binding: `prefix + -` moved to `prefix + Del`
 
-<br/><br/><br/><br/><br/>
-
 #### **Swapping windows**
 
 - `prefix + <` - moves current window one position to the left
@@ -108,25 +102,10 @@ Newly created pane always has the same path as the original pane.
 - `prefix + Alt + Home` - first window
 - `prefix + Alt + End` - last window
 
-> [!NOTE]
-> This removes default holding down `alt + arrow` for resizing panes faster because holding `ctrl + arrow` is doing the same thing. This removes redundancy without losing functionality.
+#### **Navigating sessions**
 
-## UX
-
-### **Window Renumbering**
-
-By default, this plugin enables `renumber-windows` to prevent gaps in window indexes.
-You can disable this by setting:
-```
-set -g @tpc_renumber_windows "off"
-```
-
-### **Repeat Time**
-
-Change default repeat time from 500 ms to 1000 ms for better responsiveness. You can make it shorter or longer by setting:
-```
-set -g @tpc_repeat_time "1000"
-```
+- `prefix + Alt + ↑` - previous session
+- `prefix + Alt + ↓` - next session
 
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
@@ -176,6 +155,7 @@ set -g @tpc_nav "yes"
 set -g @tpc_renumber_windows "on"
 set -g @tpc_arrow_nav "yes"
 set -g @tpc_repeat_time "1000"
+set -g @tpc_vim_pane_resizing "no"
 ```
 
 ## Other plugins
