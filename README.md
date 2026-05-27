@@ -105,10 +105,10 @@ This mappings are **repeatable**.
 
 This mappings are **repeatable**. You press `prefix` + hold down `alt` then press the binding.
 
-### **Browser-style window navigation (No Prefix)**
+#### **Browser-style window navigation (No Prefix)**
 
 - `Ctrl + Tab` - next window
-- ~~`Ctrl + Shift + Tab` - previous window~~
+- `Ctrl + Shift + Tab` - previous window
 
 > [!IMPORTANT]
 > **Terminal Compatibility: Alacritty**
@@ -119,6 +119,11 @@ This mappings are **repeatable**. You press `prefix` + hold down `alt` then pres
 key = "Tab"
 mods = "Control"
 chars = "\u001b[27;5;9~"
+
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control|Shift"
+chars = "\u001b[6u"
 ```
 
 #### **Navigating sessions**
