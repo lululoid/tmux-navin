@@ -105,6 +105,22 @@ This mappings are **repeatable**.
 
 This mappings are **repeatable**. You press `prefix` + hold down `alt` then press the binding.
 
+### **Browser-style window navigation (No Prefix)**
+
+- `Ctrl + Tab` - next window
+- ~~`Ctrl + Shift + Tab` - previous window~~
+
+> [!IMPORTANT]
+> **Terminal Compatibility: Alacritty**
+> By default, Alacritty does not send unique sequences for `Ctrl + Tab`. To make this work, add the following to your `alacritty.toml`:
+
+```toml
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control"
+chars = "\u001b[27;5;9~"
+```
+
 #### **Navigating sessions**
 
 - `prefix + Alt + ↑` - previous session
