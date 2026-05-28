@@ -135,7 +135,7 @@ This mappings are **repeatable**.
 
 ### **Layout Management**
 
-These bindings allow you to quickly switch between tmux layouts using the `Alt` (Meta) key. This mapping is consistently match the symbols used, with just an addition of modifier key, keeping it intuitive. This mapping can be disabled by option `@navin_layout_nav`.
+These bindings allow you to quickly switch between tmux layouts using the `Alt` (Meta) key. This mapping is consistently match the symbols used, with just an addition of modifier key, keeping it intuitive. This mapping can be disabled by option `@navin_layout_mgmt`.
 
 - `Alt + |` - even horizontal. Just like the symbol it basically says _**make everything looks vertical**_
 - `Alt + _` - main horizontal
@@ -194,7 +194,8 @@ set -g @navin_renumber_windows "on"
 set -g @navin_arrow_nav "yes"
 set -g @navin_repeat_time "1000"
 set -g @navin_vim_pane_resizing "no"
-set -g @navin_layout_nav "yes"
+set -g @navin_layout_mgmt "yes"
+set -g @navin_tab_nav "yes"
 ```
 
 ## Other plugins
