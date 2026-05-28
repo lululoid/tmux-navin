@@ -13,19 +13,26 @@ get_tmux_option() {
 	[ -z "$option_value" ] && echo "$default_value" || echo "$option_value"
 }
 
-window_move_bindings() {
-	if key_binding_not_set "\<"; then
-		tmux bind-key -r "<" swap-window -d -t -1
-	fi
+is_keys_free() {
+    local key=$1
+    for item in $key; do
+        is_key_bind_set "$item" && return 1
+    done
+    return 0
+}
 
-	if key_binding_not_set "\>"; then
+window_move_bindings() {
+	local keys="\< \>"
+	if is_keys_free "$keys"; then
+		tmux bind-key -r "<" swap-window -d -t -1
 		tmux bind-key -r ">" swap-window -d -t +1
 	fi
 }
 
 pane_resizing_bindings() {
-	local pane_resize=$(get_tmux_option "@navin_pane_resize" "5")
-	local vim_resize=$(get_tmux_option "@navin_vim_pane_resizing" "yes")
+	local pane_resize vim_resize
+	pane_resize=$(get_tmux_option "@navin_pane_resize" "5")
+	vim_resize=$(get_tmux_option "@navin_vim_pane_resizing" "yes")
 
 	if [ "$vim_resize" == "yes" ]; then
 		tmux bind-key -r H resize-pane -L "$pane_resize"
@@ -36,35 +43,26 @@ pane_resizing_bindings() {
 }
 
 pane_split_bindings() {
-	if key_binding_not_set "|"; then
+	local keys="| - _ \\"
+	tmux unbind-key "-"
+	if is_keys_free "$keys"; then
 		tmux bind-key "|" split-window -h -c "#{pane_current_path}"
-	fi
-
-	if key_binding_not_set "Delete"; then
-		tmux bind-key Delete delete-buffer
-	fi
-
-	tmux bind-key "-" split-window -v -c "#{pane_current_path}"
-
-	if key_binding_not_set "_"; then
+		tmux bind-key "-" split-window -v -c "#{pane_current_path}"
 		tmux bind-key "_" split-window -fv -c "#{pane_current_path}"
+		tmux bind-key "\\" split-window -fh -c "#{pane_current_path}"
 	fi
 
-	if key_binding_not_set "\\"; then
-		tmux bind-key "\\" split-window -fh -c "#{pane_current_path}"
+	if ! is_key_bind_set "Delete"; then
+		tmux bind-key BSpace delete-buffer
 	fi
 }
 
 improve_new_window_binding() {
-	if key_binding_not_set "c"; then
-		tmux bind-key "c" new-window
-	fi
-
-	if key_binding_not_set "N"; then
+	if ! is_key_bind_set "N"; then
 		tmux bind-key "N" new-window -b -t "$(tmux show-options -gv base-index)"
 	fi
 
-	if key_binding_not_set "v"; then
+	if ! is_key_bind_set "v"; then
 		tmux bind-key "v" new-window -a -c "#{pane_current_path}"
 	fi
 }
