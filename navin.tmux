@@ -13,6 +13,18 @@ get_tmux_option() {
 	[ -z "$option_value" ] && echo "$default_value" || echo "$option_value"
 }
 
+load_config_opt() {
+    local option conf
+    option=$1
+
+    if [ -n "$option" ]; then
+        conf=$(awk "/%if[[:space:]]\"#{==:#{$option},.*}\"/,/endif/" "$CURRENT_DIR/navin.conf")
+        echo "$conf" | tmux source -
+    fi
+
+    return 1
+}
+
 is_keybinds_free() {
     local key=$1
     for item in $key; do
@@ -22,10 +34,12 @@ is_keybinds_free() {
 }
 
 window_move_bindings() {
-	local keys="\< \>"
-	if is_keybinds_free "$keys"; then
-		tmux bind-key -r "<" swap-window -d -t -1
-		tmux bind-key -r ">" swap-window -d -t +1
+	local keys win_index_mgmt
+	keys="\< \>"
+	win_index_mgmt=$(get_tmux_option "@navin_win_index_mgmt" "yes")
+
+	if [ "$win_index_mgmt" == "yes" ] && is_keybinds_free "$keys"; then
+		load_config_opt "@navin_win_index_mgmt"
 	fi
 }
 
