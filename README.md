@@ -150,25 +150,25 @@ These bindings allow you to quickly switch between tmux layouts using the `Alt` 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
 ```
-set -g @plugin 'lululoid/tmux-pain-control'
+set -g @plugin 'lululoid/tmux-navin'
 ```
 
 Hit `prefix + I` to fetch the plugin and source it.
 
-You should now have all `pain-control` bindings defined.
+You should now have all `navin` bindings defined.
 
 ## Manual Installation
 
 Clone the repo:
 
 ```
-git clone https://github.com/lululoid/tmux-pain-control ~/clone/path
+git clone https://github.com/lululoid/tmux-navin ~/clone/path
 ```
 
 Add this line to the bottom of `.tmux.conf`:
 
 ```
-run-shell ~/clone/path/pain_control.tmux
+run-shell ~/clone/path/navin.tmux
 ```
 
 Reload TMUX environment:
@@ -178,7 +178,7 @@ Reload TMUX environment:
 $ tmux source-file ~/.tmux.conf
 ```
 
-You should now have all `pain-control` bindings defined.
+You should now have all `navin` bindings defined.
 
 ## Configuration
 
