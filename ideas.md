@@ -10,3 +10,4 @@
 - [x] Change default automatic resizing to use `-, _, \, |, =`, the rest is add `Ctrl` using the same available symbols.
 - [x] Use Ctrl + Tab and Ctrl + Shift + Tab for efficient window navigation.
 - [ ] Add instruction for other terminal
+- [ ] Fix bug keybinding is not re-applied during resourcing
