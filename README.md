@@ -105,7 +105,9 @@ This mappings are **repeatable**.
 
 This mappings are **repeatable**. You press `prefix` + hold down `alt` then press the binding.
 
-#### **Browser-style window navigation (No Prefix)**
+#### **Browser-style window navigation (Optional)**
+
+Can be enabled by setting: `set -g @navin_win_nav_browser "yes"`
 
 - `Ctrl + Tab` - next window
 - `Ctrl + Shift + Tab` - previous window
