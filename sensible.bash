@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 # used to match output from `tmux list-keys`
 KEY_BINDING_REGEX="bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?\(-T prefix[[:space:]]\+\)\?"
 
@@ -44,13 +41,10 @@ server_option_value_not_changed() {
 	[ "$option_value" == "$default_value" ]
 }
 
-key_binding_not_set() {
+
+is_key_bind_set() {
 	local key="${1//\\/\\\\}"
-	if $(tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]"); then
-		return 1
-	else
-		return 0
-	fi
+	tmux list-keys | grep -q "${KEY_BINDING_REGEX}${key}[[:space:]]" || return 1
 }
 
 key_binding_not_changed() {
