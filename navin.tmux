@@ -13,7 +13,7 @@ get_tmux_option() {
 	[ -z "$option_value" ] && echo "$default_value" || echo "$option_value"
 }
 
-is_keys_free() {
+is_keybinds_free() {
     local key=$1
     for item in $key; do
         is_key_bind_set "$item" && return 1
@@ -23,7 +23,7 @@ is_keys_free() {
 
 window_move_bindings() {
 	local keys="\< \>"
-	if is_keys_free "$keys"; then
+	if is_keybinds_free "$keys"; then
 		tmux bind-key -r "<" swap-window -d -t -1
 		tmux bind-key -r ">" swap-window -d -t +1
 	fi
@@ -45,7 +45,7 @@ pane_resizing_bindings() {
 pane_split_bindings() {
 	local keys="| - _ \\"
 	tmux unbind-key "-"
-	if is_keys_free "$keys"; then
+	if is_keybinds_free "$keys"; then
 		tmux bind-key "|" split-window -h -c "#{pane_current_path}"
 		tmux bind-key "-" split-window -v -c "#{pane_current_path}"
 		tmux bind-key "_" split-window -fv -c "#{pane_current_path}"
