@@ -18,7 +18,7 @@ Notice most of the bindings emulate vim cursor movements.
 The default way is simply to use the `Alt + arrow` to move around the panes. Can be disabled with:
 
 ```
-set -g @navin_nav "off"
+set -g @navin_pane_nav "off"
 ```
 
 <img align="right" src="/screenshots/pane_navigation.gif" alt="pane navigation"/>
@@ -28,7 +28,7 @@ set -g @navin_nav "off"
 Can be enabled by adding this to you config:
 
 ```
-set -g @navin_vim_mode_nav "yes"
+set -g @navin_vim_pane_nav "yes"
 ```
 
 - `prefix + h` and `prefix + C-h`<br/>
@@ -189,13 +189,13 @@ Example:
 
 ```
 set -g @navin_pane_resize "5"
-set -g @navin_nav "yes"
+set -g @navin_pane_nav "yes"
 set -g @navin_renumber_windows "on"
-set -g @navin_arrow_nav "yes"
+set -g @navin_pane_arrow_nav "yes"
 set -g @navin_repeat_time "1000"
 set -g @navin_vim_pane_resizing "no"
 set -g @navin_layout_mgmt "yes"
-set -g @navin_tab_nav "yes"
+set -g @navin_win_nav_browser "yes"
 ```
 
 ## Other plugins
