@@ -128,6 +128,12 @@ mods = "Control|Shift"
 chars = "\u001b[6u"
 ```
 
+#### **Chrome-style find navigation (Optional)**
+
+Can be enabled by setting: `set -g @navin_chrome_find "yes"`
+
+- `Ctrl + F` - enter copy mode and start searching
+
 #### **Navigating sessions**
 
 - `prefix + Alt + ↑` - previous session
@@ -192,12 +198,13 @@ Example:
 ```
 set -g @navin_pane_resize "5"
 set -g @navin_pane_nav "yes"
-set -g @navin_renumber_windows "on"
+set -g @navin_renumber_windows "yes"
 set -g @navin_pane_arrow_nav "yes"
 set -g @navin_repeat_time "1000"
 set -g @navin_vim_pane_resizing "no"
 set -g @navin_layout_mgmt "yes"
 set -g @navin_win_nav_browser "yes"
+set -g @navin_chrome_find "yes"
 ```
 
 ## Other plugins
