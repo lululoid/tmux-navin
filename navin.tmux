@@ -44,15 +44,11 @@ window_move_bindings() {
 }
 
 pane_resizing_bindings() {
-	local pane_resize vim_resize
-	pane_resize=$(get_tmux_option "@navin_pane_resize" "5")
+	local vim_resize
 	vim_resize=$(get_tmux_option "@navin_vim_pane_resizing" "yes")
 
 	if [ "$vim_resize" == "yes" ]; then
-		tmux bind-key -r H resize-pane -L "$pane_resize"
-		tmux bind-key -r J resize-pane -D "$pane_resize"
-		tmux bind-key -r K resize-pane -U "$pane_resize"
-		tmux bind-key -r L resize-pane -R "$pane_resize"
+		load_config_opt "@navin_vim_pane_resizing"
 	fi
 }
 
