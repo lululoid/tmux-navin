@@ -18,7 +18,7 @@ load_config_opt() {
     option=$1
 
     if [ -n "$option" ]; then
-        conf=$(awk "/%if[[:space:]]\"#{==:#{$option},.*}\"/,/endif/" "$CURRENT_DIR/navin.conf")
+        conf=$(awk "/%if[[:space:]]\"#{==:#{$option},.*}\"/,/endif/" "$CURRENT_DIR/navin_opt.conf")
         echo "$conf" | tmux source -
     fi
 
@@ -57,13 +57,11 @@ pane_resizing_bindings() {
 }
 
 pane_split_bindings() {
-	local keys="| - _ \\"
+	local keys="| - _ \\" pane_split
+	pane_split=$(get_tmux_option "@navin_pane_split" "yes")
 	tmux unbind-key "-"
-	if is_keybinds_free "$keys"; then
-		tmux bind-key "|" split-window -h -c "#{pane_current_path}"
-		tmux bind-key "-" split-window -v -c "#{pane_current_path}"
-		tmux bind-key "_" split-window -fv -c "#{pane_current_path}"
-		tmux bind-key "\\" split-window -fh -c "#{pane_current_path}"
+	if [ "$pane_split" == "yes" ] && is_keybinds_free "$keys"; then
+		load_config_opt "@navin_pane_split"
 	fi
 
 	if ! is_key_bind_set "Delete"; then
